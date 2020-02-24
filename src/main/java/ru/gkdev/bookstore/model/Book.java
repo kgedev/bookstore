@@ -1,12 +1,9 @@
 package ru.gkdev.bookstore.model;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
-@Entity(name="Book")
+@Entity(name="Books")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

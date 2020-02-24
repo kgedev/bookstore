@@ -12,6 +12,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <spring.version>5.2.3.RELEASE</spring.version>
         <hbm.version>5.4.10.Final</hbm.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
