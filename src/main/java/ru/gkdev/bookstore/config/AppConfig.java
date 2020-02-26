@@ -1,4 +1,4 @@
-package ru.gkdev.bookstore.impl.config;
+package ru.gkdev.bookstore.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;

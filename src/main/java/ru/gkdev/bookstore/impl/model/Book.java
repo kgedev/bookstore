@@ -8,8 +8,8 @@ import java.util.Objects;
 @Entity(name="Books")
 public class Book {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
     private String title;
     private String author;
