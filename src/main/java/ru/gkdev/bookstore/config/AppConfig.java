@@ -36,6 +36,7 @@ public class AppConfig {
 
         //Setting hibernate properties
         props.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
+        props.put(FORMAT_SQL, env.getProperty("hibernate.format_sql"));
         props.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
 
         //Setting c3p0 properties
