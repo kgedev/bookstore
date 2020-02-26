@@ -1,6 +1,8 @@
 package ru.gkdev.bookstore.impl.model;
 
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -9,12 +11,18 @@ import java.util.Objects;
 public class Book {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    @NotNull
     private String title;
+    @NotNull
     private String author;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Genre genre;
+    @NotNull
+    @Column(columnDefinition = "TINYINT")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isRead;
 
     public String getId() {
@@ -49,12 +57,12 @@ public class Book {
         this.genre = genre;
     }
 
-    public Boolean getRead() {
+    public Boolean getIsRead() {
         return isRead;
     }
 
-    public void setRead(Boolean read) {
-        isRead = read;
+    public void setIsRead(Boolean isRead) {
+        this.isRead = isRead;
     }
 
     @Override
