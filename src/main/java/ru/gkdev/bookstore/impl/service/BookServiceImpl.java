@@ -1,21 +1,22 @@
-package ru.gkdev.bookstore.impl.repository;
+package ru.gkdev.bookstore.impl.service;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ru.gkdev.bookstore.api.repository.BookRepository;
+import ru.gkdev.bookstore.api.service.BookService;
 import ru.gkdev.bookstore.impl.model.Book;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
-public class BookRepositoryImpl implements BookRepository {
+@Service
+public class BookServiceImpl implements BookService {
 
-    private final SessionFactory sessionFactory;
+    private final BookRepository bookRepository;
 
     @Autowired
-    public BookRepositoryImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public BookServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     @Override
@@ -29,11 +30,9 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
+    @Transactional
     public List<Book> getAll() {
-        return sessionFactory
-                .getCurrentSession()
-                .createQuery("SELECT book FROM Books book", Book.class)
-                .getResultList();
+        return bookRepository.getAll();
     }
 
     @Override
