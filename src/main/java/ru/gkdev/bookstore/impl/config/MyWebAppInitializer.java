@@ -1,4 +1,4 @@
-package ru.gkdev.bookstore.config;
+package ru.gkdev.bookstore.impl.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

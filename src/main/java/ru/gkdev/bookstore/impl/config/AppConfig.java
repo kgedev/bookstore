@@ -1,4 +1,4 @@
-package ru.gkdev.bookstore.config;
+package ru.gkdev.bookstore.impl.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
@@ -15,7 +15,7 @@ import static org.hibernate.cfg.Environment.*;
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 @ComponentScans(value = {
-        @ComponentScan("ru.gkdev.bookstore.repository"),
+        @ComponentScan("ru.gkdev.bookstore.impl.repository"),
         @ComponentScan("ru.gkdev.bookstore.service")
 })
 public class AppConfig {
@@ -47,7 +47,7 @@ public class AppConfig {
         props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
         factoryBean.setHibernateProperties(props);
-        factoryBean.setPackagesToScan("ru.gkdev.bookstore.model");
+        factoryBean.setPackagesToScan("ru.gkdev.bookstore.impl.model");
 
         return factoryBean;
     }

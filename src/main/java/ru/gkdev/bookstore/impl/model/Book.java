@@ -1,4 +1,4 @@
-package ru.gkdev.bookstore.model;
+package ru.gkdev.bookstore.impl.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
