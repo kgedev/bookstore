@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"ru.gkdev.bookstore.controller"})
+@ComponentScan(basePackages = {"ru.gkdev.bookstore.impl.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
 }

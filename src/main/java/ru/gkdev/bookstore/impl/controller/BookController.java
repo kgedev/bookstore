@@ -2,14 +2,14 @@ package ru.gkdev.bookstore.impl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.gkdev.bookstore.api.service.BookService;
 import ru.gkdev.bookstore.impl.model.Book;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BookController {
 
     private final BookService bookService;

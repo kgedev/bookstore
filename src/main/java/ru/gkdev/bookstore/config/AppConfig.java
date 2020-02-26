@@ -16,7 +16,7 @@ import static org.hibernate.cfg.Environment.*;
 @EnableTransactionManagement
 @ComponentScans(value = {
         @ComponentScan("ru.gkdev.bookstore.impl.repository"),
-        @ComponentScan("ru.gkdev.bookstore.service")
+        @ComponentScan("ru.gkdev.bookstore.impl.service")
 })
 public class AppConfig {
 
