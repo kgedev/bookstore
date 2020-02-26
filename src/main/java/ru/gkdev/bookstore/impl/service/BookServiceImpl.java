@@ -20,8 +20,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public String save(Book book) {
-        return null;
+        return bookRepository.save(book);
     }
 
     @Override

@@ -20,7 +20,8 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public String save(Book book) {
-        return null;
+        sessionFactory.getCurrentSession().save(book);
+        return book.getId();
     }
 
     @Override
