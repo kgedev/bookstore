@@ -2,27 +2,29 @@ package ru.gkdev.bookstore.impl.model;
 
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity(name="Books")
 public class Book {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     @NotNull
     private String title;
+
     @NotNull
     private String author;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private Genre genre;
+
     @NotNull
-    @Column(columnDefinition = "TINYINT")
-    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isRead;
 
     public String getId() {
