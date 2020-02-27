@@ -2,10 +2,7 @@ package ru.gkdev.bookstore.impl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.gkdev.bookstore.api.service.BookService;
 import ru.gkdev.bookstore.impl.model.Book;
 
@@ -31,5 +28,11 @@ public class BookController {
     public ResponseEntity<?> save(@RequestBody Book book) {
         String bookId = bookService.save(book);
         return ResponseEntity.ok().body("Book created with id: " + bookId);
+    }
+
+    @GetMapping("/book/get/{id}")
+    public ResponseEntity<Book> get(@PathVariable("id") String id) {
+        Book book = bookService.get(id);
+        return ResponseEntity.ok().body(book);
     }
 }

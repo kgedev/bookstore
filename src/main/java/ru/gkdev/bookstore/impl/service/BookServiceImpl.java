@@ -26,8 +26,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public Book get(String id) {
-        return null;
+        return bookRepository.get(id);
     }
 
     @Override

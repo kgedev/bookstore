@@ -26,7 +26,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Book get(String id) {
-        return null;
+        return sessionFactory.getCurrentSession().get(Book.class, id);
     }
 
     @Override
