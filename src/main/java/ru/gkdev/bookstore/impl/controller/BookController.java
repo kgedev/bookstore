@@ -35,4 +35,16 @@ public class BookController {
         Book book = bookService.get(id);
         return ResponseEntity.ok().body(book);
     }
+
+    @PutMapping("/book/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody Book book) {
+        bookService.update(id, book);
+        return ResponseEntity.ok().body("Book has been updated");
+    }
+
+    @DeleteMapping("/book/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") String id) {
+        bookService.delete(id);
+        return ResponseEntity.ok().body("Book has been deleted");
+    }
 }

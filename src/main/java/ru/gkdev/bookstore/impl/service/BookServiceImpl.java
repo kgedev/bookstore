@@ -38,12 +38,14 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public void update(String id, Book book) {
-
+        bookRepository.update(id, book);
     }
 
     @Override
+    @Transactional
     public void delete(String id) {
-
+        bookRepository.delete(id);
     }
 }

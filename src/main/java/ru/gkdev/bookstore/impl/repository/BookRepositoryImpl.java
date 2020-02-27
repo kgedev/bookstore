@@ -1,5 +1,6 @@
 package ru.gkdev.bookstore.impl.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -39,11 +40,20 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public void update(String id, Book book) {
+        Session session = sessionFactory.getCurrentSession();
+        Book oldBook = session.byId(Book.class).load(id);
+        oldBook.setTitle(book.getTitle());
+        oldBook.setAuthor(book.getAuthor());
+        oldBook.setGenre(book.getGenre());
+        oldBook.setIsRead(book.getIsRead());
 
+        session.flush();
     }
 
     @Override
     public void delete(String id) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Book book = session.byId(Book.class).load(id);
+        session.delete(book);
     }
 }
