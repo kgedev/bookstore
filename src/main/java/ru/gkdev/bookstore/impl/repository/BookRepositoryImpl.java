@@ -34,7 +34,7 @@ public class BookRepositoryImpl implements BookRepository {
     public List<Book> getAll() {
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("SELECT book FROM Books book", Book.class)
+                .createQuery("from books_dev")
                 .getResultList();
     }
 
